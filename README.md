@@ -59,6 +59,22 @@ This artifact depends on `com.google.guava:guava:26.0-android`.
 `DnsNameResolver.maybeChooseServiceConfig` calls [`void Verify.verify(boolean, String, Object)`][3].
 This method was added to Guava in version 23.1.
 
+# Run Linakge Checker
+
+```
+mvn verify
+```
+
+and observe the error messages.
+
+# Fix the problem
+
+Uncomment dependencyManagement section in pom.xml.
+
+Run `mvn clean verify` to see it does not report issues.
+
+Run `mvn exec:java` to confirm the Java app finishes without an exception.
+
 [1]: https://github.com/grpc/proposal/blob/master/A2-service-configs-in-dns.md
 [2]: https://google.github.io/guava/releases/20.0/api/docs/com/google/common/base/Verify.html
 [3]: https://google.github.io/guava/releases/26.0-android/api/docs/com/google/common/base/Verify.html#verify-boolean-java.lang.String-java.lang.Object-
